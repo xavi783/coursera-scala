@@ -75,11 +75,11 @@ object Main {
       if (nodes.isEmpty)
         result
       else
+        println(s"testing: ${nodes.head}, current amount: $invariant, objective: $amount")
         stopCondition(amount, invariant + nodes.head) match {
           case 1 => pickSolution(amount, nodes, invariant + nodes.head, result)
           case 0 => pickSolution(amount, nodes.tail, invariant + nodes.head, result + 1)
           case _ => pickSolution(amount, nodes.tail, invariant, result)
-          println(s"testing: ${nodes.head}, current amount: $invariant, objective: $amount")
         }
     }
 
